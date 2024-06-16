@@ -1,0 +1,21 @@
+server:
+  port: 8222
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:5050/realms/distributed-security
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
