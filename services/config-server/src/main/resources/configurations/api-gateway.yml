@@ -14,6 +14,18 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:5050/realms/distributed-security
+          jwk-set-uri: http://localhost:5050/realms/distributed-security/protocol/openid-connect/certs
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:5050/realms/distributed-security
+        registration:
+          distributed-security:
+            provider: keycloak
+            client-id: api-gateway-client
+            client-secret: tisRFMRiEcKrYOEbyOEZOh1ObIk8YGcy
+            authorization-grant-type: authorization_code
+            scope: openid
 
 management:
   tracing:

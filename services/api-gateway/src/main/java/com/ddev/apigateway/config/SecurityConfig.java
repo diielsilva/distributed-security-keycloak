@@ -19,6 +19,7 @@ public class SecurityConfig {
                         .pathMatchers("eureka/**").permitAll()
                         .anyExchange().authenticated()
                 )
+                .oauth2Login(Customizer.withDefaults())
                 .oauth2ResourceServer(resourceServer -> resourceServer.jwt(Customizer.withDefaults()))
                 .build();
     }
