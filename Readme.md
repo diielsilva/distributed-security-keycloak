@@ -9,7 +9,7 @@ recursos entre diferentes microserviços.
 
 #### Para que serve o OAuth2.0?
 
-O OAuth2.0 é um protocolo de autorização que permite a comunicação entre diferentes aplicações, como por exemplo,
+O OAuth2.0 é um framework de autorização que permite a comunicação entre diferentes aplicações, como por exemplo,
 digamos que eu crio uma aplicação de emails, mas eu não irei armazenar emails e nem usuários, então como eu poderia
 gerenciar esses emails?
 
@@ -20,15 +20,21 @@ minha aplicação acessar e gerenciar esses emails em seu nome.
 
 1. Protected Resource: É o recurso protegido, digamos que nessa aplicação de emails, o recurso protegido seriam os
    emails que estão armazenados no GMAIL ou OUTLOOK.
-2. Resource Owner: O dono do recurso, no nosso caso, seria o usuário que possui a conta no GMAIL ou OUTLOOK.
-3. Resource Server: O lugar onde está armazenado o recurso protegido, por exemplo, os servidores da GOOGLE ou MICROSOFT.
-4. Client: Seria a aplicação que deseja acessar os recursos protegidos, no exemplo dado acima, seria nossa aplicação de
-   emails, os clientes podem ser divididos em PÚBLICOS (Apps Mobile, Desktops e etc.) ou PRIVADOS (Microserviços e etc,
+2. Resource Owner: O dono do recurso, que pode ser tanto o usuário final como uma aplicação cliente, no nosso caso,
+   seria o usuário que possui a conta no GMAIL ou OUTLOOK.
+3. Resource Server: O lugar onde está armazenado o recurso protegido, que é responsável por validar se o Client pode ou
+   não acessar ao recurso protegido, pois o Resource Server pergunta ao Authorization Server se o token fornecido é
+   válido, por exemplo, os servidores da GOOGLE ou MICROSOFT.
+4. Client: Seria a aplicação que deseja acessar os recursos protegidos, ela interage com todos os envolvidos, no exemplo
+   dado acima, lembrando que o Client tem que estar cadastrado no Authorization Server, caso contrário, ele não poderá
+   se comunicar com o Authorization Server, no nosso caso seria a aplicação de
+   emails, os Clients podem ser divididos em PÚBLICOS (Apps Mobile, Desktops e etc.) ou PRIVADOS (Microserviços e etc,
    como por exemplo, um microserviço que se comunica com um meio de pagamento).
 5. Client Scope: São as permissões que minha aplicação exige, como por exemplo, se ela pode apenas ler emails, se ela
    também pode enviar emails e etc.
 6. Authorization Server: Servidor responsável por conceder ou não acesso ao recurso solicitado, no nosso caso iremos
    usar o KEYCLOAK.
+7. OAuth Provider: É a junção do Resource Server com o Authorization Server
 
 ### Principais OAuth2.0 Grant Types
 
