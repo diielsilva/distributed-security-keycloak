@@ -11,9 +11,11 @@
         <module name="config-server" />
         <module name="customers-service" />
         <module name="discovery-server" />
-        <module name="user-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="user-service" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

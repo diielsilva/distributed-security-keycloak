@@ -8,19 +8,17 @@ spring:
         locator:
           enabled: true
           lowerCaseServiceId: true
+      default-filters:
+        - TokenRelay=
 
   security:
     oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:5050/realms/distributed-security
-          jwk-set-uri: http://localhost:5050/realms/distributed-security/protocol/openid-connect/certs
       client:
         provider:
           keycloak:
             issuer-uri: http://localhost:5050/realms/distributed-security
         registration:
-          distributed-security:
+          api-gateway-client:
             provider: keycloak
             client-id: api-gateway-client
             client-secret: tisRFMRiEcKrYOEbyOEZOh1ObIk8YGcy
