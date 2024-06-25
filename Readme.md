@@ -1,6 +1,6 @@
 ## Arquitetura da Aplicação
 
-![alt text](./images/DS-Arch.png)
+![alt text](./images/Ds-Arch.png)
 
 1. Config Server usado para centralizar as configurações dos serviços.
 2. Eureka Server para permitir a descoberta de serviços.
